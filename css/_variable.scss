@@ -1,0 +1,109 @@
+$fontFamily:"Microsoft Yahei","simsun";
+$lineHeight:22px;
+$bgcolor:#fff;
+$bgbody:#eceef1;
+$fontSize:12px 14px 20px 24px;
+$space:20px;
+$borderColor:#d8dde6 #f6f8fc #f2f2f2 #f8f8f8;//边框背景色
+$textColor:(default:#666,tit:#333,tip:#999,error:#ea5504,succeed:#22ac38,link:#2da5ee);//字体颜色
+$tagKey:(crm:#f7c05d,vip:#47cfbc,it:#5fa3c8);//用户标签
+@mixin border-radius($border-radius:4px){
+	-webkit-border-radius:$border-radius;
+	-moz-border-radius:$border-radius;
+	border-radius:$border-radius;
+}
+@mixin box-shadow($box-shadow...){
+	@if length($box-shadow) >=1{
+		box-shadow:$box-shadow;
+	}
+	@else{
+		$box-shadow:-1px 1px 1px rgba(7,1,2,.1);
+		box-shadow:$box-shadow;
+	}
+}
+@mixin Bhack($property,$value){
+	-webkit-#{$property}:$value;
+	-moz-#{$property}:$value;
+	-o-#{$property}:$value;
+	-ms-#{$property}:$value;
+	#{$property}:$value;
+}
+@mixin opacity($opacity){
+	opacity:$opacity;
+	filter:alpha(opacity=($opacity*100));
+}
+//btn
+$btnColor:map-get($textColor,link),#3db4fc,$bgcolor;
+$btnColor2:nth($borderColor,4),nth($borderColor,1),#666;
+$btnWaitColor:nth($borderColor,4),nth($borderColor,1),#b4b4b4;
+$height:32px;
+//提示
+$themeTip:(
+	error:(textcolor:#c36666,bgcolor:#ffe9eb,bordercolor:#e4b9c0),
+	success:(textcolor:#638569,bgcolor:#e4f6e7,bordercolor:#b4d5b9),
+	warning:(textcolor:#b98a52,bgcolor:#fff9eb,bordercolor:#edd9b9)
+	);
+//hill mixin
+@mixin hill($direction,$size,$bordercolor,$bgcolor,$spaceX){
+	@if($direction=="topleft"){
+		left:$spaceX;top:-$size;border-width:$size/2;
+		border-color:transparent transparent $bordercolor;
+		&:after{position:absolute;content:"";border-width:$size/2;border-style:solid;left:-$size/2;top:-(($size)/2)+1;border-color:transparent transparent $bgcolor;}
+	}
+	@if($direction=="topright"){
+		right:$spaceX;top:-$size;border-width:$size/2;
+		border-color:transparent transparent $bordercolor;
+		&:after{position:absolute;content:"";border-width:$size/2;border-style:solid;left:-$size/2;top:-(($size)/2)+1;border-color:transparent transparent $bgcolor;}
+	}
+	@if($direction=="righttop"){
+		right:-$size;top:$spaceX;border-width:$size/2;
+		border-color:transparent transparent transparent $bordercolor;
+		&:after{position:absolute;content:"";border-width:$size/2;border-style:solid;left:-($size/2)-1;top:-(($size)/2);border-color:transparent transparent transparent $bgcolor;}
+	}
+	@if($direction=="rightbottom"){
+		right:-$size;bottom:$spaceX;border-width:$size/2;
+		border-color:transparent transparent transparent $bordercolor;
+		&:after{position:absolute;content:"";border-width:$size/2;border-style:solid;left:-($size/2)-1;top:-(($size)/2);border-color:transparent transparent transparent $bgcolor;}
+	}
+	@if($direction=="bottomleft"){
+		left:$spaceX;bottom:-$size;border-width:$size/2;
+		border-color:$bordercolor transparent transparent ;
+		&:after{position:absolute;content:"";border-width:$size/2;border-style:solid;left:-($size/2);top:-(($size)/2)-1;border-color:$bgcolor transparent transparent;}
+	}
+	@if($direction=="bottomright"){
+		right:$spaceX;bottom:-$size;border-width:$size/2;
+		border-color:$bordercolor transparent transparent ;
+		&:after{position:absolute;content:"";border-width:$size/2;border-style:solid;left:-($size/2);top:-(($size)/2)-1;border-color:$bgcolor transparent transparent;}
+	}
+	@if($direction=="lefttop"){
+		left:-$size;top:$spaceX;border-width:$size/2;
+		border-color:transparent $bordercolor transparent transparent;
+		&:after{position:absolute;content:"";border-width:$size/2;border-style:solid;left:-($size/2)+1;top:-(($size)/2);border-color:transparent $bgcolor transparent transparent;}
+	}
+	@if($direction=="leftbottom"){
+		left:-$size;bottom:$spaceX;border-width:$size/2;
+		border-color:transparent $bordercolor transparent transparent;
+		&:after{position:absolute;content:"";border-width:$size/2;border-style:solid;left:-($size/2)+1;top:-(($size)/2);border-color:transparent $bgcolor transparent transparent;}
+	}
+	@if($direction=="topcenter"){
+		left:$spaceX;top:-$size;border-width:$size/2;margin-left:-($size/2);
+		border-color:transparent transparent  $bordercolor;
+		&:after{position:absolute;content:"";border-width:$size/2;border-style:solid;left:-($size/2);top:-(($size)/2)+1;border-color:transparent transparent $bgcolor;}
+	}
+	@if($direction=="bottomcenter"){
+		left:$spaceX;bottom:-$size;border-width:$size/2;margin-left:-($size/2);
+		border-color:$bordercolor transparent transparent;
+		&:after{position:absolute;content:"";border-width:$size/2;border-style:solid;left:-($size/2);bottom:-(($size)/2)+1;border-color:$bgcolor transparent transparent;}
+	}
+	@if($direction=="rightcenter"){
+		top:$spaceX;right:-$size;border-width:$size/2;margin-top:-($size/2);
+		border-color:transparent transparent transparent $bordercolor;
+		&:after{position:absolute;content:"";border-width:$size/2;border-style:solid;left:-($size/2)-1;bottom:-(($size)/2);border-color:transparent transparent transparent $bgcolor;}
+	}
+	@if($direction=="leftcenter"){
+		top:$spaceX;left:-$size;border-width:$size/2;margin-top:-($size/2);
+		border-color:transparent $bordercolor transparent transparent;
+		&:after{position:absolute;content:"";border-width:$size/2;border-style:solid;left:-($size/2)+1;bottom:-(($size)/2);border-color:transparent $bgcolor transparent transparent;}
+	}
+}
+.ellipsis{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}

@@ -1,0 +1,30 @@
+.sui-popup-tip{position:relative;font-size:nth($fontSize,1);cursor:pointer;display:inline-block;width:26px;height:26px;vertical-align:middle;
+	@at-root{
+		.icon-help{display:inline-block;width:14px;height:14px;overflow:hidden;line-height:50px;background-position:0 -60px;margin:6px;
+		}
+		&:hover .icon-help{background-position:-30px -60px;}
+		.help-text{position:absolute;z-index:2;display:none;height:20px;line-height:20px;white-space:nowrap;border:1px solid nth($borderColor,1);padding:0 7px;background-color:#fff;@include border-radius;overflow:visible;
+			& .ellipsis{max-width:18em;display:inline-block;}
+			&.ht-top{left:50%;bottom:100%;@include Bhack(transform,translateX(-50%));}
+			&.ht-bottom{left:50%;top:100%;@include Bhack(transform,translateX(-50%));}
+			&.ht-left{right:100%;top:50%;@include Bhack(transform,translateY(-50%));}
+			&.ht-right{left:100%;top:50%;@include Bhack(transform,translateY(-50%));}
+		}
+		.hill-help{@extend %hill-icon;
+			&.topcenter{@include hill(topcenter,8px,nth($borderColor,1),#fff,50%);}
+			&.bottomcenter{@include hill(bottomcenter,8px,nth($borderColor,1),#fff,50%);}
+			&.rightcenter{@include hill(rightcenter,8px,nth($borderColor,1),#fff,50%);}
+			&.leftcenter{@include hill(leftcenter,8px,nth($borderColor,1),#fff,50%);}
+		}
+	}
+	&:hover .help-text{display:block;}
+}
+.sui-popup-tip-black{
+	.help-text{background-color:#333;color:#fff;border-color:#333}
+	.hill-help{
+		&.topcenter{@include hill(topcenter,8px,#333,#333,50%);}
+		&.bottomcenter{@include hill(bottomcenter,8px,#333,#333,50%);}
+		&.rightcenter{@include hill(rightcenter,8px,#333,#333,50%);}
+		&.leftcenter{@include hill(leftcenter,8px,#333,#333,50%);}
+	}
+}

@@ -1,0 +1,30 @@
+$balloonTip:(bordercolor:nth($borderColor,1),bgcolor:#fff,hWidth:16px,spaceL:18px);
+.sui-popup{
+	position:absolute;display:none;width:266px;padding:6px 19px 1px;border:1px solid map-get($balloonTip,bordercolor);background-color:map-get($balloonTip,bgcolor);@include border-radius;
+	h4{margin:8px 0 12px;color:map-get($textColor,tit);}
+	p{margin-bottom:13px;}
+	.sui-footer{padding:15px 0;margin:0 -19px;border-top-color:nth($borderColor,3);
+		.btn{width:120px;}
+	}
+}
+
+//hill
+.icon-hill{@extend %hill-icon;
+	&.topleft{@include hill(topleft,map-get($balloonTip,hWidth),map-get($balloonTip,bordercolor),map-get($balloonTip,bgcolor),map-get($balloonTip,spaceL));}
+	&.topright{@include hill(topright,map-get($balloonTip,hWidth),map-get($balloonTip,bordercolor),map-get($balloonTip,bgcolor),map-get($balloonTip,spaceL));}
+	&.righttop{@include hill(righttop,map-get($balloonTip,hWidth),map-get($balloonTip,bordercolor),map-get($balloonTip,bgcolor),map-get($balloonTip,spaceL));}
+	&.rightbottom{@include hill(rightbottom,map-get($balloonTip,hWidth),map-get($balloonTip,bordercolor),map-get($balloonTip,bgcolor),map-get($balloonTip,spaceL));}
+	&.bottomleft{@include hill(bottomleft,map-get($balloonTip,hWidth),map-get($balloonTip,bordercolor),map-get($balloonTip,bgcolor),map-get($balloonTip,spaceL));}
+	&.bottomright{@include hill(bottomright,map-get($balloonTip,hWidth),map-get($balloonTip,bordercolor),map-get($balloonTip,bgcolor),map-get($balloonTip,spaceL));}
+	&.lefttop{@include hill(lefttop,map-get($balloonTip,hWidth),map-get($balloonTip,bordercolor),map-get($balloonTip,bgcolor),map-get($balloonTip,spaceL));}
+	&.leftbottom{@include hill(leftbottom,map-get($balloonTip,hWidth),map-get($balloonTip,bordercolor),map-get($balloonTip,bgcolor),map-get($balloonTip,spaceL));}
+}
+//小弹层
+.popup-msg{width:300px;padding:0;
+	.alert-p{text-align:center;line-height:74px;}
+	.alert-tips{padding:15px $space;}
+	.sui-footer{margin:0;}
+}
+.prompt-box{position:relative;background-color:$bgcolor;margin:-10px 0 -2px;padding:0 30px 0 20px;
+	.input-style{width:100%;}
+}

@@ -1,0 +1,141 @@
+html,body,ul,li,div,p,h3,dl,dt,dd{margin:0;padding:0}
+img{border:0;vertical-align:top;}
+li{list-style:none;}
+cite,code,caption,em,i{font-style:normal;font-weight:normal;}
+a{text-decoration:none;color:#666;}
+body{font:14px/24px "microsoft yahei";padding:20px;color:#666;word-wrap:break-word;background-color:#eceef1;}
+$borderColor:#d8dde6;
+$borderLine:#e6e7ea;
+
+.edit-icon:after,.view-icon,.btn-save:before,.icon-dfd:before,.icon-processing,.icon-complete,.icon-undefined,.icon-set,.icon-del,.icon-close,.icon-add{background:url(../images/bg.png) no-repeat;}
+
+
+.rule-wrap{background-color:#fff;box-shadow:0 1px 1px rgba(7,1,2,.1);border-radius:4px;}
+.header-box{position:relative;z-index:9;padding:0 20px;line-height:48px;height:48px;box-shadow:0 0 0 1px #e6e7ea;border-radius:4px 4px 0 0;color:#333;background-color:#f6f8fc;overflow:hidden;}
+.edit-icon{cursor: pointer;
+	&:after{content:"";display:inline-block;margin-left:10px;width:13px;height:16px;overflow:hidden;vertical-align:text-top;background-position:0 -630px;}
+}
+.view-icon{float:right;width:16px;height:16px;overflow:hidden;margin-top:16px;line-height:200px;cursor:pointer;background-position:-90px -630px;}
+.save-box{border-bottom:1px solid #f2f2f2;padding:11px 20px;height:28px;}
+.btn-save{display:inline-block;width:115px;line-height:26px;text-align:center;border:1px solid $borderColor;border-radius:4px;background-color:#f8f8f8;
+	&:before{content:"";display:inline-block;margin-right:5px;width:16px;height:14px;vertical-align:-1px;background-position:-30px -630px;}
+}
+.tree-rule{padding:60px;
+	&:after,ul:after{content:"";display:block;width:0;height:0;overflow:hidden;clear:both;}
+	li{float:left;}
+	ul{padding:74px 0 0 206px;position:relative;}
+	.rule-box + ul,.rule-box-if + ul{margin-top:-190px;}
+	&>li:first-child .rule-box:before,&>li:first-child .rule-box:after{display:none;}
+
+}
+.rule-box{position:relative;width:104px;height:114px;border:1px solid $borderColor;text-align:center;margin-right:50px;border-radius:4px;}
+.rule-box:before,.rule-box-if:before,.if-box:before,.icon-add:before{content:"";position:absolute;top:50%;left:-51px;margin:-1px 0 0;width:48px;height:0;border:1px solid $borderLine;}
+.rule-box:after,.rule-box-if:after,.if-box:after{content:"";position:absolute;top:53px;left:-4px;border:4px solid $borderLine;border-color:transparent   transparent transparent $borderLine}
+.forkli{position:relative;
+	.rule-box{z-index:2;}
+	ul:before{content:"";position:absolute;top:131px;left:154px;height:100%;border:1px solid $borderLine;}
+	ul:last-child:before{display:none;}
+}
+.tree-rule li  .rule-box + ul > li:first-child > .rule-box:first-child:before{width:96px;left:-100px}
+.rule-box-if{position:relative;z-index:3;float:left;margin-top:33px;
+	.icon-dfd{padding:0;height:50px;margin:0;
+		&:hover{background-color:transparent;}
+	}
+	&:after{top:21px}
+}
+.tree-rule .if-ul{padding-left:90px;
+	&:before {left:25px;top:235px;height:calc( 100% - 104px)}
+	.sui-popup-tip{margin:41px 50px 0 0;width:auto;height:40px;z-index:3}
+}
+
+.if-box{position:relative;z-index:2;width:32px;height:32px;line-height:32px;text-align:center;border-radius:50%;border:1px solid #e5bac1;background-color:#ffe9eb;color:#c36666;
+	&:before{width:60px;left:-64px;}
+	&:after{top:12px;left:-4px;}
+	&.yes{border-color:#b5d6ba;color:#638569;background-color:#e4f6e7;}
+	&.yes:before{width:40px;left:-42px;}
+}
+
+
+
+
+.icon-dfd{display:block;height:95px;padding-top:19px;
+	&:hover{background-color:#f6f8fc}
+	&:before{content:"";display:block;width:50px;height:50px;overflow:hidden;margin:0 auto 7px;}
+	&.not{color:#999}
+}
+.icon-name:before{background-position:2px -480px}
+//立即
+.icon-hand:before{background-position:0 0}
+.icon-hand.not:before{background-position:-60px 0}
+//满足条件
+.icon-if:before{background-position:0 -60px}
+.icon-if.not:before{background-position:-60px -60px}
+//筛选
+.icon-screening:before{background-position:0 -120px}
+.icon-screening.not:before{background-position:-60px -120px}
+//发布新活动
+.icon-publish:before{background-position:0 -180px}
+.icon-publish.not:before{background-position:-60px -180px}
+//分级变更
+.icon-integral:before{background-position:0 -240px}
+.icon-integral.not:before{background-position:-60px -240px}
+//微信模版消息
+.icon-template:before{background-position:0 -300px}
+.icon-template.not:before{background-position:-60px -300px}
+//微信客服消息
+.icon-service:before{background-position:0 -360px}
+.icon-service.not:before{background-position:-60px -360px}
+//打标签
+.icon-tag:before{background-position:0 -420px}
+.icon-tag.not:before{background-position:-60px -420px}
+//状态ICON
+.icon-processing,.icon-complete,.icon-undefined{position:absolute;width:16px;height:16px;line-height:100px;overflow:hidden;right:5px;top:5px}
+.icon-processing{background-position:0 -540px;}
+.icon-complete{background-position:-30px -540px;}
+.icon-undefined{background-position:-60px -540px;}
+
+/*提示层*/
+%hill-icon{position:absolute;width:0;height:0;border-style:solid;}
+
+@import "variable";
+@import "popup-tip";
+@import "popup";
+.sui-popup{width:100%;left:-1px;bottom:-44px;height:32px;padding:0}
+.icon-hill.topleft{left:50%;margin-left:-8px;}
+.icon-set,.icon-del{display:inline-block;width:16px;height:32px;overflow:hidden;line-height:100px;}
+.icon-set{background-position:-60px -561px;
+	&:hover{background-position:-90px -561px;}
+}
+.icon-del{background-position:2px -561px;
+	&:hover{background-position:-28px -561px;}
+}
+.sui-popup .sui-popup-tip,.if-ul .sui-popup .sui-popup-tip{margin:0 11px;width:16px;height:36px}
+//新建分支
+.rule-box.addnew{border-color:#fd6b5e;background-color:#f7f8fd;}
+.forkli .rule-box.addnew ~ ul:before,.icon-add:before{border:1px dashed #fd6b5e}
+.icon-add{display:block;position:relative;margin-top:45px;width:26px;height:26px;background-position:-30px -660px;}
+
+
+
+//工具条
+.toolbar{display:none;position:absolute;z-index:11;left:36px;top:-43px;width:398px;border:1px solid #d8dde6;box-shadow:0 1px 1px rgba(7,1,2,.1);background-color:#fff;border-radius:3px;}
+.tool-title{position:relative;line-height:48px;border-bottom:1px solid #d8dde6;padding:0 20px;font-size:14px;font-weight:normal;color:#333;background-color:#eceef1;}
+.icon-close{position:absolute;right:20px;top:17px;width:14px;height:14px;overflow:hidden;line-height:100px;cursor:pointer;background-position:0 -660px;}
+.toolbar-list{padding:20px 20px 0;max-height:368px;overflow-y:scroll;
+	dt{line-height:40px;height:40px;padding:0 20px;border:1px solid $borderLine;background-color:#f6f8fc;border-radius:3px;
+		span{float:right;cursor:pointer;color:#2da5ee;}
+	}
+	ul{overflow:hidden;clear:both;text-align:center;padding:10px 0 20px}
+	li{float:left;width:106px;height:112px;margin-right:15px;}
+
+}
+.hill-top:after{content:"";margin-left:5px;display:inline-block;border:5px solid #999;vertical-align:3px;border-color:transparent transparent #999}
+
+
+
+
+
+
+
+
+
